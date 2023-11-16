@@ -1,0 +1,27 @@
+{
+  "employeeInfo": [
+    {
+      "empPicture": null,
+      "firstName": "Abed",
+      "lastName": "Hajqasem",
+      "middleName": "Osama",
+      "username": "Abedulkareem",
+      "password": "abed123"
+    },
+    {
+      "empPicture": null,
+      "firstName": "ascxhfv",
+      "lastName": "monccnaw",
+      "middleName": "Osama"
+    },
+    {
+      "empPicture": null,
+      "firstName": "ataa",
+      "lastName": "sasno",
+      "middleName": "abeer"
+    }
+  ],
+  "ids": [
+    156
+  ]
+}
