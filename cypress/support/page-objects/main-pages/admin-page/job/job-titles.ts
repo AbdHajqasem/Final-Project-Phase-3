@@ -1,7 +1,7 @@
 class JobTitles {
     url = {
       jobTitle:
-        "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/job-titles",
+        "/api/v2/admin/job-titles",
     };
     addJobTitleUsingAPI(jobTitlesData: any) {
       const jobTitlePayload = {

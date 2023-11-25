@@ -16,7 +16,7 @@ class Candidate {
     return cy
       .api({
         method: "POST",
-        url: "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/candidates",
+        url: "/api/v2/recruitment/candidates",
         body: CANDIDATE_PAYLOAD,
       })
       .then((response) => {
@@ -27,7 +27,7 @@ class Candidate {
     return cy
       .api({
         method: "PUT",
-        url: `https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/candidates/${candidateId}/shortlist`,
+        url: `/api/v2/recruitment/candidates/${candidateId}/shortlist`,
         body: {
           note: null,
         },
@@ -43,14 +43,14 @@ class Candidate {
         return cy
           .api({
             method: "POST",
-            url: `https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/candidates/${candidateId}/shedule-interview`,
+            url: `/api/v2/recruitment/candidates/${candidateId}/shedule-interview`,
             body: PAY_LOAD,
           })
           .then((res) => {
             return cy
               .api({
                 method: "PUT",
-                url: `https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/candidates/${candidateId}/interviews/${res.body.data.id}/pass`,
+                url: `/api/v2/recruitment/candidates/${candidateId}/interviews/${res.body.data.id}/pass`,
                 body: {
                   note: null,
                 },
@@ -59,7 +59,7 @@ class Candidate {
                 return cy
                   .api({
                     method: "PUT",
-                    url: `https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/candidates/${candidateId}/job/offer`,
+                    url: `/api/v2/recruitment/candidates/${candidateId}/job/offer`,
                     body: {
                       note: null,
                     },
@@ -67,7 +67,7 @@ class Candidate {
                   .then(() => {
                     return cy.api({
                       method: "PUT",
-                      url: `https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/candidates/${candidateId}/hire`,
+                      url: `/api/v2/recruitment/candidates/${candidateId}/hire`,
                       body: {
                         note: null,
                       },

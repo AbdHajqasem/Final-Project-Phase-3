@@ -1,20 +1,35 @@
 /// <reference types="cypress-downloadfile"/>
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
 import LoginPage from "../../support/page-objects/main-pages/login-page";
+
 import Employee from "../../support/page-objects/main-pages/pim-page/add-employee/add-employee";
+
 import JobTitles from "../../support/page-objects/main-pages/admin-page/job/job-titles";
+
 import Vacancy from "../../support/page-objects/main-pages/recruitment/vacancy";
+
 import Candidate from "../../support/page-objects/main-pages/recruitment/candidate/candidate";
+
 import Delete from "../../support/helper/delete-records";
+
 import UploadAndDownloadAFile from "../../support/page-objects/main-pages/recruitment/candidate/upload-download-file";
+
 const EMPLOYEE: Employee = new Employee();
+
 const LOGIN_PAGE: LoginPage = new LoginPage();
+
 const JOB_TITLES: JobTitles = new JobTitles();
+
 const VACANCY: Vacancy = new Vacancy();
+
 const DELETE: Delete = new Delete();
+
 const CANDIDATE: Candidate = new Candidate();
+
 const UPLOAD_DOWNLOAD_FILE: UploadAndDownloadAFile =
   new UploadAndDownloadAFile();
+
 let newEmployees: any = [];
 let newJobTitleId = 0;
 let newVacancyId = 0;
@@ -22,9 +37,6 @@ let newCandidateId = 0;
 Given(
   "I create an employee, job title, vacancy, and candidate with Application Initiated state",
   () => {
-    cy.visit(
-      "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-    );
     LOGIN_PAGE.login("Admin", "admin123");
     cy.fixture("employee-info").as("employeeData");
     cy.get("@employeeData").then((employeeData: any) => {
@@ -83,9 +95,6 @@ Then("The uploaded file should contain the same data as was uploaded1.", () => {
 Given(
   "I create an employee, job title, vacancy, and candidate with Hired state",
   () => {
-    cy.visit(
-      "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-    );
     LOGIN_PAGE.login("Admin", "admin123");
     cy.fixture("employee-info").as("employeeData");
     cy.get("@employeeData").then((employeeData: any) => {

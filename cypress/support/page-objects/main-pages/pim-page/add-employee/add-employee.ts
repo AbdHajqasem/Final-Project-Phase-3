@@ -2,9 +2,9 @@ import GenerateRandomNumber from "../../../../generate-random-number";
 class Employee {
   urls = {
     employees:
-      "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees",
+      "/api/v2/pim/employees",
     users:
-      "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/users",
+      "/api/v2/admin/users",
   };
   addEmployee(employeeData: any) {
     const employeePayload = {

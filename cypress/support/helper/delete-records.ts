@@ -1,19 +1,19 @@
 class Delete {
     urls = {
       deleteEmployees:
-        "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees",
+        "/api/v2/pim/employees",
       deleteJobTitle:
-        "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/job-titles",
+        "/api/v2/admin/job-titles",
       deleteLocation:
-        "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/locations",
+        "/api/v2/admin/locations",
         deleteEvent:
-        "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/claim/events",
+        "/api/v2/claim/events",
         deleteExpense:
-        "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/claim/expenses/types",
+        "/api/v2/claim/expenses/types",
         deleteVacancy:
-        "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/vacancies",
+        "/api/v2/recruitment/vacancies",
         deletecandidate:
-        "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/candidates"
+        "/api/v2/recruitment/candidates"
     };
     deleteEmployees(employeeData: any) {
       const deleteEmployeePayload = {
@@ -27,7 +27,6 @@ class Delete {
           body: deleteEmployeePayload,
         })
         .then((response) => {
-          //console.log(response.body.data.empNumber);
           return response.body.data.empNumber;
         });
     }
@@ -50,14 +49,6 @@ class Delete {
         url: this.urls.deleteLocation,
         body: deletePayload,
       });
-    }
-    deleteReport(reportName: any) {
-      cy.get(`.oxd-table-cell:contains(${reportName})`)
-        .closest(".oxd-table-row")
-        .within(() => {
-          cy.get(".oxd-icon.bi-trash").click();
-        }); 
-        cy.get('button').contains('Yes, Delete').click()
     }
     deleteEvent(eventId:any){
       const deletePayload = {
