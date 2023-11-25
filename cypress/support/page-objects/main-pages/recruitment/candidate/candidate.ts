@@ -1,8 +1,8 @@
 class Candidate {
   createInterviewScheduledCandidate(
     candidateData: any,
-    vacancyId: any,
-    EmpNumber: any
+    vacancyId: number,
+    EmpNumber: number
   ) {
     const CANDIDATE_PAYLOAD = {
       firstName: candidateData.firstName,
@@ -20,7 +20,7 @@ class Candidate {
     return cy
       .api({
         method: "POST",
-        url: "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/candidates",
+        url: "/api/v2/recruitment/candidates",
         body: CANDIDATE_PAYLOAD,
       })
       .then((response) => {
@@ -28,7 +28,7 @@ class Candidate {
         return cy
           .api({
             method: "PUT",
-            url: `https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/candidates/${CANDIDATE_ID}/shortlist`,
+            url: `/api/v2/recruitment/candidates/${CANDIDATE_ID}/shortlist`,
             body: {
               note: null,
             },
@@ -36,7 +36,7 @@ class Candidate {
           .then(() => {
             return cy.api({
               method: "POST",
-              url: `https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/candidates/${CANDIDATE_ID}/shedule-interview`,
+              url: `/api/v2/recruitment/candidates/${CANDIDATE_ID}/shedule-interview`,
               body: {
                 interviewName: candidateData.interviewName,
                 interviewDate: candidateData.interviewDate,

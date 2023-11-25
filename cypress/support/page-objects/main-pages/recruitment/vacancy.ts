@@ -1,5 +1,5 @@
 class Vacancy {
-  createVacancy(vacancyData: any, jobTitleId: any, employeeId: any) {
+  createVacancy(vacancyData: any, jobTitleId: number, employeeId: number) {
     const VACANCY_PAYLOAD = {
       name: vacancyData.name,
       jobTitleId: jobTitleId,
@@ -13,7 +13,7 @@ class Vacancy {
     
     return cy.api({
       method: "POST",
-      url: "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/recruitment/vacancies",
+      url: "/api/v2/recruitment/vacancies",
       body: VACANCY_PAYLOAD,
     }).then((response) => {
       return response.body.data.id;
